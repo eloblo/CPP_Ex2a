@@ -32,6 +32,7 @@ TEST_CASE("Tests") {
 TEST_CASE("empty message") {
     ariel::Board board;
     CHECK_THROWS(board.read(0,0, Direction::Horizontal, 0));
+    CHECK_THROWS(board.post(0,0, Direction::Horizontal, ""));
 }
 
 TEST_CASE("out of default bound"){

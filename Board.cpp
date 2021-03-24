@@ -1,10 +1,7 @@
-#include <string>
-#include <vector>
 #include <algorithm>
 #include <iostream>
 #include <stdexcept>
 using namespace std;
-#include "Direction.hpp"
 #include "Board.hpp"
 using namespace ariel;
 
@@ -21,6 +18,10 @@ void Board::resize(unsigned int row, unsigned col){
 //post a message on the board on the given loacation and direction
 void Board::post(unsigned int row, unsigned int col, Direction dirc, string msg){
     int size = msg.size();
+    //check for valid message
+    if(size == 0){
+    	throw invalid_argument("empty message");
+    }
     //check for directions
     if(dirc == Direction::Horizontal){
     	//check if the loaction is within bounds
